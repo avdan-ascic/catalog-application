@@ -16,10 +16,12 @@ export const registerValidator = [
     }),
   body("password")
     .trim()
-    .isLength({ min: 6 })
-    .withMessage("Password must be at least 6 characters")
-    .matches(/^[a-z]+$/)
-    .withMessage("Password can contain only lowercase letters"),
+    .isLength({ min: 8 })
+    .withMessage("Password must be at least 8 characters")
+    .matches(/^(?=.*[A-Z])(?=.*[!@#$%^&*])/, "i")
+    .withMessage(
+      "Password must contain at least one capital letter and one special character"
+    ),
   body("confirmPassword")
     .trim()
     .custom((value, { req }) => {

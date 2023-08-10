@@ -11,6 +11,7 @@ import "./passport.config";
 import userRoutes from "./routes/user.routes";
 import catRoutes from "./routes/category.routes";
 import itemRoutes from "./routes/item.routes";
+import config from "./config";
 
 const app = express();
 
@@ -28,7 +29,7 @@ app.use(cookieParser());
 app.use(passport.initialize());
 app.use(
   session({
-    secret: process.env.SESSION_SECRET,
+    secret: config.sessionSecret,
     saveUninitialized: false,
     resave: false,
   })

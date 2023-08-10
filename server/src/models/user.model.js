@@ -31,11 +31,11 @@ UserSchema.pre("save", async function (next) {
   if (checkEmail) next(new Error("Email is already in use!"));
 
   // Validate password and hash
-  const pwRegex = /^[a-z]{6,}$/;
+  const pwRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*]).{6,}$/;
   if (!pwRegex.test(this.password))
     next(
       new Error(
-        "Password can contain only lowercase letters and must have at least 6 characters!"
+      "Password can contains at least one uppercase letter, at least one special character, and must be at least 6 characters long."
       )
     );
 

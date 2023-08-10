@@ -142,6 +142,13 @@ const Login = () => {
           </Button>
         </Link>
       </CardActions>
+      <Typography component="p" sx={{ color: "#eee", marginTop: "1em" }}>
+        No Account?{" "}
+        <Link to="/register" style={{ color: "red" }}>
+          Click here
+        </Link>{" "}
+        to register.
+      </Typography>
     </StyledCard>
   );
 };
