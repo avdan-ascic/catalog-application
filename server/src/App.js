@@ -29,7 +29,7 @@ app.use(cookieParser());
 app.use(passport.initialize());
 app.use(
   session({
-    secret: config.sessionSecret,
+    secret: config.session_secret,
     saveUninitialized: false,
     resave: false,
   })
