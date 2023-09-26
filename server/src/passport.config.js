@@ -10,7 +10,7 @@ opts.jwtFromRequest = function (req) {
   if (req && req.cookies) token = req.cookies.token;
   return token;
 };
-opts.secretOrKey = config.secret;
+opts.secretOrKey = config.jwt_secret;
 
 passport.use(
   new JwtStrategy(opts, async function (jwt_payload, done) {
